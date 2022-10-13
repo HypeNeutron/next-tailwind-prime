@@ -2,14 +2,14 @@ import CheckoutWizard from "../../components/Checkout/CheckoutWizard";
 import Layout from "../../components/Layout";
 import { ErrorValidate } from "../../components/ErrorValidate";
 import { useForm } from "react-hook-form";
-import { useCartContext } from "../../context/context";
+import { useGlobalContext } from "../../context/context";
 import { useEffect } from "react";
 
 export default function ShippingPage() {
   const {
     addressSubmitHandler,
     cart: { shippingAddress },
-  } = useCartContext();
+  } = useGlobalContext();
 
   const {
     handleSubmit,

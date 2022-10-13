@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
 import { useSession } from "next-auth/react";
-import { useCartContext } from "../../context/context";
+import { useGlobalContext } from "../../context/context";
 import DropdownMenu from "./DropdownMenu/DropdownMenu";
 
 export default function Nav() {
@@ -10,7 +10,7 @@ export default function Nav() {
 
   const {
     cart: { cartAmount },
-  } = useCartContext();
+  } = useGlobalContext();
 
   return (
     <header className="fixed top-0 w-full z-50">
@@ -20,7 +20,7 @@ export default function Nav() {
         </Link>
 
         <div className="text-white flex">
-          <Link href={`${session?.user ? "cart" : "/login"}`}>
+          <Link href={`${session?.user ? "/cart" : "/login"}`}>
             <a className="p-2 font-medium flex items-center w-[4.6rem] justify-between  hover:text-amber-400 relative mr-2 ">
               <FaShoppingCart size="1.4em" /> Cart
               {cartAmount > 0 && (

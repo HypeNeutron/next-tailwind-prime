@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useCartContext } from "../context/context";
+import { useGlobalContext } from "../context/context";
 
 export default function ProductCard({ product }) {
   const { image, name, slug, brand, price } = product;
 
-  const { addToCart } = useCartContext();
+  const { addToCart } = useGlobalContext();
 
   return (
     <div className="card">

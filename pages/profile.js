@@ -1,8 +1,6 @@
-import { useEffect, useState, Fragment } from "react";
+import { useState, Fragment } from "react";
 import { useSession } from "next-auth/react";
-import { useForm } from "react-hook-form";
 import Layout from "../components/Layout";
-import { ErrorValidate } from "./../components/ErrorValidate";
 import Profile from "../components/Profile/Profile";
 import AccountSecurity from "../components/Profile/AccountSecurity";
 

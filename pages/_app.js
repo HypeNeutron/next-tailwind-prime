@@ -13,9 +13,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       <AppContextProvider>
         <PayPalScriptProvider deferLoading={true}>
           {Component.auth ? (
-            <Auth>
+            <NextAuth>
               <Component {...pageProps} />
-            </Auth>
+            </NextAuth>
           ) : (
             <Component {...pageProps} />
           )}
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   );
 }
 
-function Auth({ children }) {
+function NextAuth({ children }) {
   const router = useRouter();
   const { status } = useSession({
     required: true,

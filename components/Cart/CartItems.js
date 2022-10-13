@@ -1,10 +1,10 @@
-import { useCartContext } from "../../context/context";
+import { useGlobalContext } from "../../context/context";
 import Link from "next/link";
 import Image from "next/image";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
 export default function CartItems({ cartItems }) {
-  const { removeCartItem, updateCart } = useCartContext();
+  const { removeCartItem, updateCart } = useGlobalContext();
 
   return (
     <div className="overflow-x-auto md:col-span-3">

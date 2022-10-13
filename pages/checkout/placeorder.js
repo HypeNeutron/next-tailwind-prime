@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { useCartContext } from "../../context/context";
+import { useGlobalContext } from "../../context/context";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Layout from "../../components/Layout";
@@ -17,7 +17,7 @@ export default function PlaceOrderPage() {
     dispatch,
     cart,
     cart: { cartItems, shippingAddress, paymentMethod, cartTotal },
-  } = useCartContext();
+  } = useGlobalContext();
 
   const router = useRouter();
 
@@ -83,7 +83,7 @@ export default function PlaceOrderPage() {
                 {fullName}, {address}, {city}, {postalCode}, {country}
               </div>
               <div className="text-blue-600">
-                <Link href="/shipping">Edit</Link>
+                <Link href="/checkout/shipping">Edit</Link>
               </div>
             </div>
 
@@ -91,7 +91,7 @@ export default function PlaceOrderPage() {
               <h2 className="mb-2 text-lg font-medium">Payment Method</h2>
               <div className="mb-1">{paymentMethod}</div>
               <div className="text-blue-600 ">
-                <Link href="/payment">Edit</Link>
+                <Link href="/checkout/payment">Edit</Link>
               </div>
             </div>
 

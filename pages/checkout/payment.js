@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import CheckoutWizard from "../../components/Checkout/CheckoutWizard";
 import Layout from "../../components/Layout";
-import { useCartContext } from "../../context/context";
+import { useGlobalContext } from "../../context/context";
 
 export default function PaymentPage() {
   const router = useRouter();
@@ -11,7 +11,7 @@ export default function PaymentPage() {
   const {
     paymentSubmit,
     cart: { shippingAddress, paymentMethod },
-  } = useCartContext();
+  } = useGlobalContext();
 
   useEffect(() => {
     if (!shippingAddress) return router.push("/checkout/shipping");

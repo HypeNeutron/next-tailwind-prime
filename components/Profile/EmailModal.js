@@ -10,8 +10,8 @@ function EmailModal({
   isEmailEdit,
   setIsEmailEdit,
 }) {
-  const emailRef = useRef("");
-  const passwordRef = useRef("");
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
   useEffect(() => {
     emailRef.current.defaultValue = email;

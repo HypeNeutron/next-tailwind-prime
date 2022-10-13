@@ -1,14 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-// import { useRouter } from "next/router";
-import { useCartContext } from "../../context/context";
+import { useGlobalContext } from "../../context/context";
 import { MdArrowBackIosNew } from "react-icons/md";
 import Layout from "../../components/Layout";
 import dbConnect, { convertDocToStr } from "../../utils/dbConnect";
 import Product from "../../models/Product";
 
 export default function ProductPage({ product }) {
-  const { addToCart } = useCartContext();
+  const { addToCart } = useGlobalContext();
 
   if (!product) {
     return (

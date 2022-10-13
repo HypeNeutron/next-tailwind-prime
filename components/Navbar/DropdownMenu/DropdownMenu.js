@@ -1,11 +1,11 @@
 import { Menu, Transition } from "@headlessui/react";
 import { useSession } from "next-auth/react";
-import { useCartContext } from "../../../context/context";
+import { useGlobalContext } from "../../../context/context";
 import toastPop from "../../../utils/toastPop";
 import DropdownLink from "./DropdownLink";
 
 export default function DropdownMenu() {
-  const { logoutSubmit } = useCartContext();
+  const { logoutSubmit } = useGlobalContext();
   const { data: session } = useSession();
 
   return (

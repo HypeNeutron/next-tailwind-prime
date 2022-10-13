@@ -20,7 +20,6 @@ import {
   CART_REMOVE_ITEM,
   CART_RESET,
   SAVE_SHIPPING_ADDRESS,
-  CART_CLEAR_ITEMS,
   SAVE_PAYMENT_METHOD,
 } from "./actions";
 import toastPop from "../utils/toastPop";
@@ -176,8 +175,8 @@ function AppContextProvider({ children }) {
   );
 }
 
-const useCartContext = () => {
+const useGlobalContext = () => {
   return useContext(AppContext);
 };
 
-export { AppContextProvider, useCartContext };
+export { AppContextProvider, useGlobalContext };

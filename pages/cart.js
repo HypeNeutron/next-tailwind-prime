@@ -1,4 +1,4 @@
-import { useCartContext } from "../context/context";
+import { useGlobalContext } from "../context/context";
 import Layout from "./../components/Layout";
 import Link from "next/link";
 import CartItems from "../components/Cart/CartItems";
@@ -7,7 +7,7 @@ import CartTotal from "../components/Cart/CartTotal";
 export default function CartPage() {
   const {
     cart: { cartItems, cartTotal, cartAmount },
-  } = useCartContext();
+  } = useGlobalContext();
 
   return (
     <Layout title="Shopping Cart">
@@ -16,7 +16,7 @@ export default function CartPage() {
         <div className="text-lg my-5 font-medium">
           Cart is empty : &nbsp;
           <Link href="/">
-            <a className="  primary-button" role="button">
+            <a className="primary-button" role="button">
               Go Shopping
             </a>
           </Link>

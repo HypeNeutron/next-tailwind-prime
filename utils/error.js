@@ -1,8 +1,14 @@
 export const getError = (err) => {
-  let message = err.response ? err.response.data.message : err.message;
-  if (message.includes(500)) {
+  let message;
+  const dataRes = err.response?.data;
+  if (dataRes) {
+    if (dataRes.error) message = dataRes.error.message;
+    message = dataRes.message;
+  } else message = err.message;
+
+  if (typeof dataRes === "string") message = dataRes; // debug only
+  if ((message && message.includes(500)) || message.includes("Network Error"))
     message =
-      "Can't connect to server, please check your connection or contact us";
-  }
-  return message;
+      "Something went wrong 👻 Please check your connection and try again, or contact us";
+  return message || "Something went wrong, Please try again";
 };

@@ -17,10 +17,9 @@ export default function Home({ products }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   await dbConnect();
   const products = await Product.find().lean();
-
   return {
     props: { products: products.map(convertDocToStr) },
   };
