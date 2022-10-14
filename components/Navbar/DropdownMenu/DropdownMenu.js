@@ -27,6 +27,13 @@ export default function DropdownMenu() {
               Profile
             </DropdownLink>
           </Menu.Item>
+          {session.user.isAdmin && (
+            <Menu.Item>
+              <DropdownLink className="dropdown-link" href="/admin/dashboard">
+                Dashboard
+              </DropdownLink>
+            </Menu.Item>
+          )}
           <Menu.Item>
             <DropdownLink className="dropdown-link" href="/order-history">
               Order History

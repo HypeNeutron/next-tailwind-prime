@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useGlobalContext } from "../../context/context";
 import { MdArrowBackIosNew } from "react-icons/md";
 import Layout from "../../components/Layout";
-import dbConnect, { convertDocToStr } from "../../utils/dbConnect";
+import dbConnect, { convertDocLeanToStr } from "../../utils/dbConnect";
 import Product from "../../models/Product";
 
 export default function ProductPage({ product }) {
@@ -104,6 +104,6 @@ export async function getServerSideProps({ params: { slug } }) {
   const product = await Product.findOne({ slug }).lean();
 
   return {
-    props: { product: product ? convertDocToStr(product) : null },
+    props: { product: product ? convertDocLeanToStr(product) : null },
   };
 }

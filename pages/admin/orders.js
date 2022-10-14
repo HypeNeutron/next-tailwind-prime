@@ -111,7 +111,7 @@ export default function AdminOrdersPage() {
                         </td>
                         <td className="p-5">
                           <Link href={`/order/${_id}`}>
-                            <a className="blueLink">Details</a>
+                            <a className="text-blue-500">Details</a>
                           </Link>
                         </td>
                       </tr>

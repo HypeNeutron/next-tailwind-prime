@@ -1,6 +1,8 @@
 import Link from "next/link";
 import useQueryAPI from "../../utils/useQueryAPI";
 import Layout from "../../components/Layout";
+import useHasMounted from "../../hooks/useMounted";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -52,33 +54,35 @@ export default function DashboardPage() {
     };
   }
 
+  const hasMounted = useHasMounted();
+  if (!hasMounted) return;
+
   return (
     <Layout title="Admin Dashboard">
       <div className="grid lg:grid-cols-4 md:gap-5">
-        <div>
-          <ul>
-            <li>
-              <Link href="/admin/dashboard">
-                <a className="font-bold blueLink text-lg">Dashboard</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/admin/orders">
-                <a className="blueLink text-lg">Orders</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/admin/products">
-                <a className="blueLink text-lg">Products</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/admin/users">
-                <a className="blueLink text-lg">Users</a>
-              </Link>
-            </li>
-          </ul>
-        </div>
+        <ul>
+          <li>
+            <Link href="/admin/dashboard">
+              <a className="font-bold blueLink text-lg">Dashboard</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/admin/orders">
+              <a className="blueLink text-lg">Orders</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/admin/products">
+              <a className="blueLink text-lg">Products</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/admin/users">
+              <a className="blueLink text-lg">Users</a>
+            </Link>
+          </li>
+        </ul>
+
         <div className="lg:col-span-3">
           <h1 className="mb-4 text-xl font-medium">Admin Dashboard</h1>
           {isFetching && !window.navigator.onLine ? (
@@ -90,8 +94,8 @@ export default function DashboardPage() {
           ) : error ? (
             <div className="alert-error">{error.message}</div>
           ) : (
-            <div>
-              <div className="grid grid-cols-1 lg:grid-cols-4">
+            <>
+              <section className="grid grid-cols-1 lg:grid-cols-4">
                 <div className="card m-5 p-5 hover:shadow-lg transition-shadow duration-[1500ms]">
                   <p className="text-3xl">${summary.ordersPrice}</p>
                   <p className="font-medium">Sales</p>
@@ -120,10 +124,10 @@ export default function DashboardPage() {
                     <a className="blueLink">View users</a>
                   </Link>
                 </div>
-              </div>
+              </section>
               <h2 className="text-xl font-medium">Sales Report</h2>
               <Bar options={options} data={data} />
-            </div>
+            </>
           )}
         </div>
       </div>

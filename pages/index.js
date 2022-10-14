@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
 import ProductCard from "../components/ProductCard";
-import dbConnect, { convertDocToStr } from "./../utils/dbConnect";
+import dbConnect, { convertDocLeanToStr } from "./../utils/dbConnect";
 import Product from "./../models/Product";
 
 export default function Home({ products }) {
@@ -21,6 +21,6 @@ export async function getServerSideProps() {
   await dbConnect();
   const products = await Product.find().lean();
   return {
-    props: { products: products.map(convertDocToStr) },
+    props: { products: products.map(convertDocLeanToStr) },
   };
 }
