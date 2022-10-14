@@ -1,4 +1,3 @@
-/* eslint-disable */
 import axios from "axios";
 import {
   createContext,
@@ -45,44 +44,52 @@ function AppContextProvider({ children }) {
     return data;
   }, []);
 
-  const addToCart = async (product) => {
-    const exitItem = state.cart.cartItems.find((p) => p.slug === product.slug);
-    const cloud = await getProductById(product._id);
+  const addToCart = useCallback(
+    async (product) => {
+      const exitItem = state.cart.cartItems.find(
+        (p) => p.slug === product.slug
+      );
+      const cloud = await getProductById(product._id);
 
-    if (exitItem) {
-      if (cloud.stock === exitItem.quantity) {
-        toastPop(
-          "warning",
-          "Sorry. Product is out of stock",
-          null,
-          null,
-          null,
-          3000
-        );
+      if (exitItem) {
+        if (cloud.stock === exitItem.quantity) {
+          toastPop(
+            "warning",
+            "Sorry. Product is out of stock",
+            null,
+            null,
+            null,
+            3000
+          );
+          return;
+        }
+      }
+      dispatch({ type: CART_ADD_ITEM, payload: product });
+    },
+    [getProductById, state.cart.cartItems]
+  );
+
+  const updateCart = useCallback(
+    async ({ item, qty }) => {
+      const cloud = await getProductById(item._id);
+      if (cloud.stock < qty) {
+        toastPop("error", "Sorry Product is out of stock");
         return;
       }
-    }
-    dispatch({ type: CART_ADD_ITEM, payload: product });
-  };
 
-  const updateCart = async ({ item, qty }) => {
-    const cloud = await getProductById(item._id);
-    if (cloud.stock < qty) {
-      toastPop("error", "Sorry Product is out of stock");
-      return;
-    }
+      dispatch({
+        type: CART_ADD_ITEM,
+        payload: { ...item, quantity: qty, update: true },
+      });
+    },
+    [getProductById]
+  );
 
-    dispatch({
-      type: CART_ADD_ITEM,
-      payload: { ...item, quantity: qty, update: true },
-    });
-  };
-
-  const removeCartItem = (slug) => {
+  const removeCartItem = useCallback((slug) => {
     dispatch({ type: CART_REMOVE_ITEM, payload: slug });
-  };
+  }, []);
 
-  const logoutSubmit = () => {
+  const logoutSubmit = useCallback(() => {
     return new Promise(async (resolve, reject) => {
       try {
         await signOut({ callbackUrl: "/login" });
@@ -93,39 +100,39 @@ function AppContextProvider({ children }) {
         reject(err.message);
       }
     });
-  };
+  }, []);
 
-  const paymentSubmit = (e, selectedPaymentMethod) => {
-    e.preventDefault();
-    if (!selectedPaymentMethod) {
-      return toastPop(
-        "error",
-        "Payment method is required!",
-        null,
-        "top-right"
+  const paymentSubmit = useCallback(
+    (e, selectedPaymentMethod) => {
+      e.preventDefault();
+      if (!selectedPaymentMethod) {
+        return toastPop(
+          "error",
+          "Payment method is required!",
+          null,
+          "top-right"
+        );
+      }
+      dispatch({ type: SAVE_PAYMENT_METHOD, payload: selectedPaymentMethod });
+      Cookies.set(
+        "cart",
+        JSON.stringify({ ...state.cart, paymentMethod: selectedPaymentMethod })
       );
-    }
-    dispatch({ type: SAVE_PAYMENT_METHOD, payload: selectedPaymentMethod });
-    Cookies.set(
-      "cart",
-      JSON.stringify({ ...state.cart, paymentMethod: selectedPaymentMethod })
-    );
-    router.push("/checkout/placeorder");
-  };
+      router.push("/checkout/placeorder");
+    },
+    [router, state.cart]
+  );
 
-  const addressSubmitHandler = async ({
-    fullName,
-    address,
-    city,
-    postalCode,
-    country,
-  }) => {
-    dispatch({
-      type: SAVE_SHIPPING_ADDRESS,
-      payload: { fullName, address, city, postalCode, country },
-    });
-    router.push("/checkout/payment");
-  };
+  const addressSubmitHandler = useCallback(
+    async ({ fullName, address, city, postalCode, country }) => {
+      dispatch({
+        type: SAVE_SHIPPING_ADDRESS,
+        payload: { fullName, address, city, postalCode, country },
+      });
+      router.push("/checkout/payment");
+    },
+    [router]
+  );
 
   useEffect(() => {
     if (Cookies.get("cart")) {
