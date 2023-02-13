@@ -20,11 +20,9 @@ export default function OrderItems({ children, cartItems, cartTotal }) {
             return (
               <tr key={_id} className="border-b">
                 <td>
-                  <Link href={`/product/${slug}`}>
-                    <a className="flex items-center">
-                      <Image src={image} width={50} height={50} alt={name} />
-                      &nbsp; {name}
-                    </a>
+                  <Link href={`/product/${slug}`} className="flex items-center">
+                    <Image src={image} width={50} height={50} alt={name} />
+                    &nbsp; {name}
                   </Link>
                 </td>
                 <td className="p-5 text-right">{quantity}</td>

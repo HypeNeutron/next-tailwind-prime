@@ -78,10 +78,11 @@ export default function OrderHistoryPage() {
                         : "not delivered"}
                     </td>
                     <td className="p-5 pl-2">
-                      <Link href={`/order/${_id}`}>
-                        <a className=" text-left font-medium primary-button">
-                          Details
-                        </a>
+                      <Link
+                        href={`/order/${_id}`}
+                        className=" text-left font-medium primary-button"
+                      >
+                        Details
                       </Link>
                     </td>
                   </tr>

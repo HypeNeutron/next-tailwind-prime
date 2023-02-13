@@ -16,23 +16,23 @@ export default function AdminOrdersPage() {
         <div>
           <ul>
             <li>
-              <Link href="/admin/dashboard">
-                <a className="blueLink text-lg">Dashboard</a>
+              <Link href="/admin/dashboard" className="blueLink text-lg">
+                Dashboard
               </Link>
             </li>
             <li>
-              <Link href="/admin/orders">
-                <a className="font-bold blueLink text-lg">Orders</a>
+              <Link href="/admin/orders" className="font-bold blueLink text-lg">
+                Orders
               </Link>
             </li>
             <li>
-              <Link href="/admin/products">
-                <a className="blueLink text-lg">Products</a>
+              <Link href="/admin/products" className="blueLink text-lg">
+                Products
               </Link>
             </li>
             <li>
-              <Link href="/admin/users">
-                <a className="blueLink text-lg">Users</a>
+              <Link href="/admin/users" className="blueLink text-lg">
+                Users
               </Link>
             </li>
           </ul>
@@ -110,8 +110,11 @@ export default function AdminOrdersPage() {
                             : "not paid"}
                         </td>
                         <td className="p-5">
-                          <Link href={`/order/${_id}`}>
-                            <a className="text-blue-500">Details</a>
+                          <Link
+                            href={`/order/${_id}`}
+                            className="text-blue-500"
+                          >
+                            Details
                           </Link>
                         </td>
                       </tr>

@@ -62,23 +62,26 @@ export default function DashboardPage() {
       <div className="grid lg:grid-cols-4 md:gap-5">
         <ul>
           <li>
-            <Link href="/admin/dashboard">
-              <a className="font-bold blueLink text-lg">Dashboard</a>
+            <Link
+              href="/admin/dashboard"
+              className="font-bold blueLink text-lg"
+            >
+              Dashboard
             </Link>
           </li>
           <li>
-            <Link href="/admin/orders">
-              <a className="blueLink text-lg">Orders</a>
+            <Link href="/admin/orders" className="blueLink text-lg">
+              Orders
             </Link>
           </li>
           <li>
-            <Link href="/admin/products">
-              <a className="blueLink text-lg">Products</a>
+            <Link href="/admin/products" className="blueLink text-lg">
+              Products
             </Link>
           </li>
           <li>
-            <Link href="/admin/users">
-              <a className="blueLink text-lg">Users</a>
+            <Link href="/admin/users" className="blueLink text-lg">
+              Users
             </Link>
           </li>
         </ul>
@@ -99,29 +102,29 @@ export default function DashboardPage() {
                 <div className="card m-5 p-5 hover:shadow-lg transition-shadow duration-[1500ms]">
                   <p className="text-3xl">${summary.ordersPrice}</p>
                   <p className="font-medium">Sales</p>
-                  <Link href="/admin/orders">
-                    <a className="blueLink">View sales</a>
+                  <Link href="/admin/orders" className="blueLink">
+                    View sales
                   </Link>
                 </div>
                 <div className="card m-5 p-5 hover:shadow-lg transition-shadow duration-[1500ms]">
                   <p className="text-3xl">{summary.ordersCount}</p>
                   <p className="font-medium">Orders</p>
-                  <Link href="/admin/orders">
-                    <a className="blueLink">View orders</a>
+                  <Link href="/admin/orders" className="blueLink">
+                    View orders
                   </Link>
                 </div>
                 <div className="card m-5 p-5 hover:shadow-lg transition-shadow duration-[1500ms]">
                   <p className="text-3xl">{summary.productsCount}</p>
                   <p className="font-medium">Products</p>
-                  <Link href="/admin/products">
-                    <a className="blueLink">View products</a>
+                  <Link href="/admin/products" className="blueLink">
+                    View products
                   </Link>
                 </div>
                 <div className="card m-5 p-5 hover:shadow-lg transition-shadow duration-[1500ms]">
                   <p className="text-3xl">{summary.usersCount}</p>
                   <p className="font-medium">Users</p>
-                  <Link href="/admin/users">
-                    <a className="blueLink">View users</a>
+                  <Link href="/admin/users" className="blueLink">
+                    View users
                   </Link>
                 </div>
               </section>

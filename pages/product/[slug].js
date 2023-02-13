@@ -34,11 +34,12 @@ export default function ProductPage({ product }) {
   return (
     <Layout title={name}>
       <div className="py-5 font-medium">
-        <Link href="/">
-          <a className="flex items-center w-[9.5rem] text-[#273244] justify-between bg-amber-400 hover:bg-amber-500 p-[0.42rem] rounded">
-            <MdArrowBackIosNew />
-            back to products
-          </a>
+        <Link
+          href="/"
+          className="flex items-center w-[9.5rem] text-[#273244] justify-between bg-amber-400 hover:bg-amber-500 p-[0.42rem] rounded"
+        >
+          <MdArrowBackIosNew />
+          back to products
         </Link>
       </div>
 

@@ -148,8 +148,11 @@ export default function RegisterPage() {
 
         <div className="form-control text-center">
           Already has an account? &nbsp;
-          <Link href={`/auth/login?redirect=${redirect || "/"}`}>
-            <a className="font-medium">Login</a>
+          <Link
+            href={`/auth/login?redirect=${redirect || "/"}`}
+            className="font-medium"
+          >
+            Login
           </Link>
         </div>
       </form>

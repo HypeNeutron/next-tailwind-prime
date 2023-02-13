@@ -24,12 +24,13 @@ export default function CartItems({ cartItems }) {
             return (
               <tr key={slug} className="border-b">
                 <td>
-                  <Link href={`/product/${slug}`}>
-                    <a className="flex items-center ">
-                      <Image src={image} alt={name} width={50} height={50} />
-                      &nbsp;
-                      {name}
-                    </a>
+                  <Link
+                    href={`/product/${slug}`}
+                    className="flex items-center "
+                  >
+                    <Image src={image} alt={name} width={50} height={50} />
+                    &nbsp;
+                    {name}
                   </Link>
                 </td>
                 <td className="p-5 px-1 text-center">

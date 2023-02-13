@@ -68,10 +68,8 @@ export default function PlaceOrderPage() {
       {cartItems.length === 0 ? (
         <div className="text-lg my-5 font-medium">
           Cart is empty : &nbsp;
-          <Link href="/">
-            <a className="  primary-button" role="button">
-              Go Shopping
-            </a>
+          <Link href="/" className="primary-button">
+            Go Shopping
           </Link>
         </div>
       ) : (

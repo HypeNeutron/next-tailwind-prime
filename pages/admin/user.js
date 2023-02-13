@@ -65,23 +65,23 @@ export default function AdminEditUserPage() {
         <div>
           <ul>
             <li>
-              <Link href="/admin/dashboard">
-                <a className="blueLink text-lg">Dashboard</a>
+              <Link href="/admin/dashboard" className="blueLink text-lg">
+                Dashboard
               </Link>
             </li>
             <li>
-              <Link href="/admin/orders">
-                <a className=" blueLink text-lg">Orders</a>
+              <Link href="/admin/orders" className=" blueLink text-lg">
+                Orders
               </Link>
             </li>
             <li>
-              <Link href="/admin/products">
-                <a className="blueLink text-lg">Products</a>
+              <Link href="/admin/products" className="blueLink text-lg">
+                Products
               </Link>
             </li>
             <li>
-              <Link href="/admin/users">
-                <a className="font-bold blueLink text-lg">Users</a>
+              <Link href="/admin/users" className="font-bold blueLink text-lg">
+                Users
               </Link>
             </li>
           </ul>
@@ -143,8 +143,8 @@ export default function AdminEditUserPage() {
               </div>
 
               <div className="mb-4">
-                <Link href={`/admin/users`}>
-                  <a className="blue-button px-6">&#8678; Back</a>
+                <Link href={`/admin/users`} className="blue-button px-6">
+                  &#8678; Back
                 </Link>
               </div>
             </form>

@@ -3,10 +3,8 @@ import Link from "next/link";
 
 function DropdownLink({ href, children, ...rest }, ref) {
   return (
-    <Link href={href}>
-      <a {...rest} ref={ref}>
-        {children}
-      </a>
+    <Link href={href} {...rest} ref={ref}>
+      {children}
     </Link>
   );
 }

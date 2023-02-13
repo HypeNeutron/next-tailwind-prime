@@ -110,8 +110,11 @@ export default function LoginPage() {
           </div>
           <div className="form-control text-center">
             Don&apos;t have an account?&nbsp;
-            <Link href={`/auth/register?redirect=${redirect || "/"}`}>
-              <a className="font-medium">Register</a>
+            <Link
+              href={`/auth/register?redirect=${redirect || "/"}`}
+              className="font-medium"
+            >
+              Register
             </Link>
           </div>
           <div className="relative mx-auto mb-5 w-[75%]">

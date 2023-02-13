@@ -10,23 +10,19 @@ export default function ProductCard({ product }) {
   return (
     <div className="card">
       <Link href={`/product/${slug}`}>
-        <a>
-          <Image
-            src={image}
-            width={607}
-            height={607}
-            alt={name}
-            objectFit="cover"
-            className="rounded shadow"
-          />
-        </a>
+        <Image
+          src={image}
+          width={607}
+          height={607}
+          alt={name}
+          objectFit="cover"
+          className="rounded shadow"
+        />
       </Link>
 
       <div className="flex flex-col items-center justify-center p-5  font-medium">
         <Link href={`/product/${slug}`}>
-          <a>
-            <h2 className="text-lg">{name}</h2>
-          </a>
+          <h2 className="text-lg">{name}</h2>
         </Link>
         <p className="mb-2">{brand}</p>
         <p>${price}</p>

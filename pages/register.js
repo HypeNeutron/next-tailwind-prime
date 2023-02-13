@@ -144,8 +144,8 @@ export default function RegisterPage() {
 
         <div className="mb-4 ">
           Already has an account? &nbsp;
-          <Link href={`/login?redirect=${redirect || "/"}`}>
-            <a className="font-medium ">Login</a>
+          <Link href={`/login?redirect=${redirect || "/"}`} className="font-medium ">
+            Login
           </Link>
         </div>
       </form>

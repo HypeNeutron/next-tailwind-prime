@@ -34,23 +34,26 @@ export default function AdminProductsPage() {
         <div>
           <ul>
             <li>
-              <Link href="/admin/dashboard">
-                <a className="blueLink text-lg">Dashboard</a>
+              <Link href="/admin/dashboard" className="blueLink text-lg">
+                Dashboard
               </Link>
             </li>
             <li>
-              <Link href="/admin/orders">
-                <a className=" blueLink text-lg">Orders</a>
+              <Link href="/admin/orders" className=" blueLink text-lg">
+                Orders
               </Link>
             </li>
             <li>
-              <Link href="/admin/products">
-                <a className="font-bold blueLink text-lg">Products</a>
+              <Link
+                href="/admin/products"
+                className="font-bold blueLink text-lg"
+              >
+                Products
               </Link>
             </li>
             <li>
-              <Link href="/admin/users">
-                <a className="blueLink text-lg">Users</a>
+              <Link href="/admin/users" className="blueLink text-lg">
+                Users
               </Link>
             </li>
           </ul>
@@ -69,8 +72,11 @@ export default function AdminProductsPage() {
             <>
               <div className="flex justify-between mb-5 items-center">
                 <h1 className="font-medium text-xl">Products</h1>
-                <Link href="/admin/product/add-product">
-                  <a className="primary-button">Create</a>
+                <Link
+                  href="/admin/product/add-product"
+                  className="primary-button"
+                >
+                  Create
                 </Link>
               </div>
 
@@ -101,10 +107,11 @@ export default function AdminProductsPage() {
                           <td className=" p-5 ">{rating}</td>
                           <td className=" p-2 text-center my-auto">
                             <div className="md:flex justify-evenly items-center">
-                              <Link href={`/admin/product/${_id}`}>
-                                <a type="button" className="blue-button mr-1">
-                                  Edit
-                                </a>
+                              <Link
+                                href={`/admin/product/${_id}`}
+                                className="blue-button mr-1"
+                              >
+                                Edit
                               </Link>
 
                               <button

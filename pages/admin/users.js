@@ -24,23 +24,23 @@ export default function AdminUsersPage() {
         <div>
           <ul>
             <li>
-              <Link href="/admin/dashboard">
-                <a className="blueLink text-lg">Dashboard</a>
+              <Link href="/admin/dashboard" className="blueLink text-lg">
+                Dashboard
               </Link>
             </li>
             <li>
-              <Link href="/admin/orders">
-                <a className=" blueLink text-lg">Orders</a>
+              <Link href="/admin/orders" className=" blueLink text-lg">
+                Orders
               </Link>
             </li>
             <li>
-              <Link href="/admin/products">
-                <a className="blueLink text-lg">Products</a>
+              <Link href="/admin/products" className="blueLink text-lg">
+                Products
               </Link>
             </li>
             <li>
-              <Link href="/admin/users">
-                <a className="font-bold  blueLink text-lg">Users</a>
+              <Link href="/admin/users" className="font-bold  blueLink text-lg">
+                Users
               </Link>
             </li>
           </ul>
@@ -87,10 +87,9 @@ export default function AdminUsersPage() {
                             <div className="md:flex justify-evenly items-center">
                               <Link
                                 href={`/admin/user?id=${_id}&name=${name}&admin=${isAdmin}`}
+                                className="blue-button mr-1"
                               >
-                                <a type="button" className="blue-button mr-1">
-                                  Edit
-                                </a>
+                                Edit
                               </Link>
                               <button
                                 onClick={() => deleteUserHandler(_id)}
